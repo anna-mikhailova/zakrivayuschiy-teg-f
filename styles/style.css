@@ -10,7 +10,289 @@
 
 */
 
+body {
+  background-image: var(--page-background);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--main-font-family), sans-serif;
+  font-variation-settings: 'wght' var(--main-font-text-weight);
+  width: var(--sections-width);
+  font-size: var(--main-font-size);
+  color: var(--font-color);
 }
+
+.header {
+  border: var(--border);
+  font-family: var(--accent-font-family), sans-serif;
+  font-weight: 400;
+  margin-block: var(--header-block-margin);
+  padding-block: var(--header-block-padding);
+  display: flex;
+  flex-direction: column;
+  gap: var(--header-title-gap);
+  align-items: center;
+  background-color: var(--card-background-color);
+}
+
+.header__title-tag {
+  font-size: var(--header-title-tag-font-size);
+}
+
+.header__title {
+  font-size: var(--header-title-font-size);
+  text-transform: uppercase;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cards-gap);
+  align-items: center;
+}
+
+.card {
+  border: var(--border);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-background-color);
+}
+
+.card__title {
+  font-variation-settings: 'wght' var(--main-font-title-weight);
+  padding-inline: var(--card-title-padding-inline);
+  padding-block: var(--card-title-padding-block);
+}
+
+.card__pic {
+  width: 100%;
+  border-top: var(--border);
+  border-bottom: var(--border);
+  position: relative;
+}
+
+.card__pic-text {
+  position: absolute;
+  right: var(--card-pic-text-right);
+  top: var(--card-pic-text-top);
+  mix-blend-mode: hard-light;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: var(--card-pic-text-size);
+  text-shadow:
+  -1px 0 var(--card-pic-text-stroke-color), 
+  0 1px var(--card-pic-text-stroke-color), 
+  1px 0 var(--card-pic-text-stroke-color), 
+  0 -1px var(--card-pic-text-stroke-color);
+  opacity: var(--card-pic-text-opacity);
+  z-index: 2;
+}
+
+@supports((text-stroke: 1px #000000) or (-webkit-text-stroke: 1px #000000)) {
+  .card__pic-text {
+    -webkit-text-stroke: 1px var(--card-pic-text-stroke-color);
+    text-stroke: 1px var(--card-pic-text-stroke-color);
+    text-shadow: none;
+  }
+}
+
+.card__img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.card__paragraph {
+  padding-inline: var(--card-paragraph-padding-inline);
+  padding-block: var(--card-paragraph-padding-block);
+  line-height: 21px;
+}
+
+.card__paragraph:first-of-type{
+  padding-block: var(--card-first-paragraph-padding-block);
+}
+
+.card__icon-button {
+  padding: var(--card-button-padding);
+  align-self: end;
+  display: inline;
+  gap: var(--card-like-button-gap);
+  align-items: end;
+  cursor: pointer;
+}
+
+.button__text {
+  text-align: center;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: var(--button-font-size);
+}
+
+.card__like-button {
+  border: var(--border);
+  min-width: var(--card-like-button-width);
+  /*display: inline-block;*/
+  padding-block: var(--card-like-button-padding-block);
+}
+
+.prep .card__img {
+  filter: contrast(60%);
+}
+
+.one-start .card__img {
+  filter: blur(5px);
+}
+
+.one-end .card__img {
+  filter: opacity(0.8);
+}
+
+.two-start .card__img {
+  filter: grayscale(0.8);
+}
+
+.two-end .card__img {
+  filter: saturate(158%);
+}
+
+.three-start .card__img {
+  filter: hue-rotate(-90deg);
+}
+
+.three-end .card__img {
+  filter: sepia(80%);
+}
+
+.now .card__img {
+  filter: sepia(1) contrast(2) brightness(200%);
+}
+
+.save-button {
+  display: flex;
+  flex-direction: row;
+  gap: var(--save-button-gap);
+  align-items: center;
+  justify-content: center;
+  height: var(--save-button-heigh);
+  width: var(--save-button-width);
+  border: var(--border);
+  cursor: pointer;
+  background-color: var(--card-background-color);
+}
+
+.save-button__img {
+  width: var(--save-button-img-size);
+  height: var(--save-button-img-size);
+}
+
+.popup {
+  height: var(--popup-height);
+  width: var(--popup-width);
+  border: var(--border);
+  padding: 30px;
+  font-family: var(--accent-font-family), sans-serif;
+  font-size: var(--button-font-size);
+  transition: opacity 0.3s;
+  background-color: var(--card-background-color);
+}
+
+.popup__img {
+  height: 39px;
+  width: 39px;
+  flex-shrink: 0;
+}
+
+.popup__text {
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+.popup__button {
+  border: var(--border);
+  height: 38px;
+  width: 100%;
+  text-align: center;
+}
+
+.popup[open] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.popup[open] .popup__message {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.popup:not([open]) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.popup::backdrop {
+  background: rgba(0,0,0,0.75);
+}
+/*
+.button {
+  position: relative;
+  overflow: hidden;          
+  background: #fff;   
+  color: #000;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Убираем стандартный фокус, добавляем тень */
+/*.button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+/* Псевдоэлемент для эффекта наведения */
+/*.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hover-bg);
+  transform: translateX(-100%); 
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Анимация при наведении */
+/*.button:hover::before {
+  transform: translateX(0);
+}
+
+/* Обертка для текста */
+/*.button span {
+  position: relative; /* Для работы z-index */
+/*  z-index: 2;        /* Поднимаем над псевдоэлементом */
+/*  mix-blend-mode: difference; /* Инверсия цвета */
+/*}
+
+/* Стили для иконки */
+/*.button svg {
+/*  position: relative;
+/*  z-index: 2;
+/*  mix-blend-mode: difference; /* Применяем тот же эффект */
+/*  fill: currentColor;         /* Наследует цвет текста */
+/*  width: 1em;
+/*  height: 1em;
+/*}
+*/
+@media (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }  
+}
+
+
+
+
