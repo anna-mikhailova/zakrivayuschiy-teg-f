@@ -14,16 +14,17 @@
   --header-title-font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   --border: 2px solid #000;
   --card-background-color: #fff;
-  --cards-gap: 50.5px;
+  --button-background-color: #fff;
+  --cards-gap: 50px;
   --card-title-padding-inline: 10px;
   --card-title-padding-block: 3px 5px;
   --card-paragraph-padding-inline: 25px;
   --card-paragraph-padding-block: 27px 0px;
   --card-first-paragraph-padding-block: 25px 0px;
-  --card-button-padding: 25px 25px;
-  --card-like-button-padding-block: 10.5px 10px;
+  --card-button-padding: 25px;
+  --card-like-button-height: 39px;
   --card-like-button-width: 130px;
-  --card-like-button-gap: 6px;
+  --card-like-button-gap: 4px;
   --button-font-size: 14px;
   --save-button-heigh: 55px;
   --save-button-width: 338px;
@@ -59,6 +60,8 @@
   --hover-text-color: #fff;    
   --shadow-color: #000;   
   --hover-bg: #000;
+  --heart-contour-color: #000;
+  --animation-fill-color: red;
 }
 
 @media (width <= 375px) {
