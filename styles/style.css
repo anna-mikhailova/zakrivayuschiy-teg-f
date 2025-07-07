@@ -10,35 +10,6 @@
 
 */
 
-/* кейфреймы для масштабирования сердца*/
-@keyframes heart-scale {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.25);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* кейфреймы для искр */
-@keyframes sparks-appear {
-  0% {
-    opacity: 0;
-    fill: red;
-  }
-  50% {
-    opacity: 1;
-    fill: red;
-  }
-  100% {
-    opacity: 0;
-    fill: red;
-  }
-}
-
 body {
   background-image: var(--page-background);
   background-attachment: fixed;
@@ -58,7 +29,7 @@ body {
 /*хедер*/
 .header {
   border: var(--border);
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), fantasy;
   font-weight: 400;
   margin-block: var(--header-block-margin);
   padding-block: var(--header-block-padding);
@@ -84,6 +55,7 @@ body {
   flex-direction: column;
   gap: var(--cards-gap);
   align-items: center;
+  margin-block-end: var(--page-margin-block-end);
 }
 
 /*карточка*/
@@ -112,7 +84,7 @@ body {
   right: var(--card-pic-text-right);
   top: var(--card-pic-text-top);
   mix-blend-mode: hard-light;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), fantasy;
   font-size: var(--card-pic-text-size);
   text-shadow: -1px 0 var(--card-pic-text-stroke-color),
     0 1px var(--card-pic-text-stroke-color),
@@ -135,38 +107,39 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
+  aspect-ratio: 1/1;
 }
 
 /*фильтры для изображений карточек*/
-.prep .card__img {
+.filter-contrast {
   filter: contrast(60%);
 }
 
-.one-start .card__img {
+.filter-blur {
   filter: blur(5px);
 }
 
-.one-end .card__img {
+.filter-opacity {
   filter: opacity(0.8);
 }
 
-.two-start .card__img {
+.filter-greyscale {
   filter: grayscale(0.8);
 }
 
-.two-end .card__img {
+.filter-saturate {
   filter: saturate(158%);
 }
 
-.three-start .card__img {
+.filter-hue-rotate {
   filter: hue-rotate(-90deg);
 }
 
-.three-end .card__img {
+.filter-sepia {
   filter: sepia(80%);
 }
 
-.now .card__img {
+.filter-sepia-contrast-brightness {
   filter: sepia(1) contrast(2) brightness(200%);
 }
 
@@ -196,6 +169,7 @@ body {
   border: var(--border);
   border-color: #ffffff00;
   height: var(--card-like-button-height);
+  transition: border-color 0.3s ease;
 }
 
 /*фокус к иконке сердца*/
@@ -285,7 +259,7 @@ body {
 
 .button__text {
   text-align: center;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), fantasy;
   font-size: var(--button-font-size);
   color: var(--button-background-color); /*inverted for mix-blend-mode*/
   background-color: var(--font-color); /*inverted for mix-blend-mode*/
@@ -320,11 +294,10 @@ body {
 
 /*всплывающее окно*/
 .popup {
-  height: var(--popup-height);
   width: var(--popup-width);
   border: var(--border);
   padding: 30px;
-  font-family: var(--accent-font-family), sans-serif;
+  font-family: var(--accent-font-family), fantasy;
   font-size: var(--button-font-size);
   transition: opacity 0.3s;
   background-color: var(--card-background-color);
@@ -352,6 +325,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .popup[open] .popup__message {

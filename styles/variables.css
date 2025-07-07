@@ -10,11 +10,7 @@
   --header-block-margin: 100px;
   --header-block-padding: clamp(120px, 30%, 128px);
   --header-title-gap: 20px;
-  --header-title-tag-font-size: clamp(
-    3.0625rem,
-    2.7104rem + 1.5023vw,
-    4.0625rem
-  );
+  --header-title-tag-font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   --header-title-font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   --border: 2px solid #000;
   --card-background-color: #fff;
@@ -41,6 +37,7 @@
   --card-pic-text-stroke-color: #ffffff;
   --popup-height: 191px;
   --popup-width: 353px;
+  --page-margin-block-end: 103px;
   --page-background: repeating-linear-gradient(
       to right,
       #d3d3d3 0px,
@@ -70,5 +67,6 @@
     --save-button-gap: 8px;
     --card-pic-text-right: 11px;
     --save-button-img-size: 28px;
+    --page-margin-block-end: 100px;
   }
 }

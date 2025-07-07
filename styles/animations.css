@@ -9,3 +9,32 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+/* кейфреймы для масштабирования сердца*/
+@keyframes heart-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* кейфреймы для искр */
+@keyframes sparks-appear {
+  0% {
+    opacity: 0;
+    fill: var(--animation-fill-color);
+  }
+  50% {
+    opacity: 1;
+    fill: var(--animation-fill-color);
+  }
+  100% {
+    opacity: 0;
+    fill: var(--animation-fill-color);
+  }
+}
